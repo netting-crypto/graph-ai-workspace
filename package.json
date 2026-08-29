@@ -1,0 +1,18 @@
+{
+  "name": "graph-ai-workspace",
+  "version": "0.9.0",
+  "private": false,
+  "description": "A canvas-first AI workspace for Obsidian with canonical conversations, context, and pluggable local Agent runtimes.",
+  "license": "MIT",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "release:verify": "node scripts/check.mjs && node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

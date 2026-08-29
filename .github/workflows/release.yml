@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify tag matches manifest
+        shell: bash
+        run: |
+          VERSION=$(node -p "require('./manifest.json').version")
+          if [ "${GITHUB_REF_NAME}" != "v${VERSION}" ]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match manifest version v${VERSION}."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check and build
+        run: npm run release:verify
+
+      - name: Publish release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" \
+              dist/main.js dist/manifest.json dist/styles.css --clobber
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              dist/main.js dist/manifest.json dist/styles.css \
+              --title "Graph AI Workspace ${GITHUB_REF_NAME#v}" \
+              --generate-notes
+          fi

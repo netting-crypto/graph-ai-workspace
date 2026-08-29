@@ -1,0 +1,9 @@
+{
+  "id": "graph-ai-workspace",
+  "name": "Graph AI Workspace",
+  "version": "0.9.0",
+  "minAppVersion": "1.5.0",
+  "description": "A canvas-first AI workspace with canonical conversations, context, and pluggable local Agent runtimes.",
+  "author": "witch",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,18 @@
+# User-local plugin state. Never commit conversations, API keys, absolute paths, or runtime bindings.
+data.json
+
+# Build outputs and dependencies
+node_modules/
+dist/
+
+# Local runtime/config files
+.zcode/
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+*.log
+*.swp
+.vscode/
+.idea/

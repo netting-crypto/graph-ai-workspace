@@ -1,0 +1,1668 @@
+.gaw-root {
+  --gaw-border: color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
+  --gaw-soft: color-mix(in srgb, var(--background-secondary) 82%, var(--background-primary));
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-primary);
+}
+
+.workspace-leaf-content[data-type="graph-ai-workspace-view"] .view-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.gaw-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--gaw-border);
+}
+
+.gaw-header-compact {
+  position: relative;
+  display: block;
+}
+
+.gaw-chat-menu {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.gaw-title-wrap h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.gaw-chat-meta {
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.gaw-card-provenance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  color: var(--text-faint);
+  font-size: 10px;
+}
+
+.gaw-provenance-link {
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.gaw-provenance-link:hover {
+  background: transparent;
+  color: var(--interactive-accent);
+  text-decoration: underline;
+}
+
+.gaw-chat {
+  flex: 1;
+  min-height: 120px;
+  overflow-y: auto;
+  padding: 18px 16px 28px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.gaw-empty-chat {
+  max-width: 360px;
+  margin: 42px auto;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.gaw-empty-icon {
+  margin-bottom: 10px;
+  color: var(--interactive-accent);
+  font-size: 24px;
+}
+
+.gaw-empty-chat strong {
+  color: var(--text-normal);
+  font-size: 13px;
+}
+
+.gaw-empty-chat p {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.gaw-message {
+  margin-bottom: 18px;
+}
+
+.gaw-message-role {
+  margin-bottom: 5px;
+  color: var(--text-faint);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.gaw-message-body {
+  padding: 11px 12px;
+  border: 1px solid var(--gaw-border);
+  border-radius: 14px;
+  white-space: pre-wrap;
+  line-height: 1.58;
+  font-size: 12px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.gaw-message-content {
+  white-space: pre-wrap;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.gaw-message-contexts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+  white-space: normal;
+}
+
+.gaw-message-context-link {
+  max-width: 100%;
+  height: 25px;
+  padding: 0 8px;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-primary);
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 9.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-message-context-link:hover {
+  border-color: var(--background-modifier-border-hover);
+  color: var(--text-normal);
+}
+
+.gaw-message-quote {
+  margin-bottom: 9px;
+  padding: 7px 9px;
+  border-left: 2px solid color-mix(in srgb, var(--interactive-accent) 58%, transparent);
+  border-radius: 0 8px 8px 0;
+  background: color-mix(in srgb, var(--background-primary) 74%, transparent);
+}
+
+.gaw-message-quote-label,
+.gaw-composer-quote-label {
+  margin-bottom: 2px;
+  color: var(--text-faint);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.gaw-message-quote-text,
+.gaw-composer-quote-text {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.gaw-message-quote-text {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.gaw-message.is-user .gaw-message-body {
+  margin-left: 28px;
+  background: color-mix(in srgb, var(--interactive-accent) 7%, var(--background-primary));
+}
+
+.gaw-message.is-assistant .gaw-message-body {
+  margin-right: 14px;
+  background: var(--background-secondary);
+}
+
+.gaw-tool-runs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.gaw-tool-run {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 2px 7px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 9.5px;
+}
+
+.gaw-tool-run.is-done {
+  color: var(--text-normal);
+}
+
+.gaw-tool-run.is-failed,
+.gaw-tool-run.is-denied {
+  color: var(--text-error);
+}
+
+.gaw-message-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.gaw-message-actions .gaw-message-action-icon {
+  width: 27px;
+  height: 27px;
+  min-width: 27px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-faint);
+  opacity: .72;
+}
+
+.gaw-message-actions .gaw-message-action-icon:hover,
+.gaw-message-actions .gaw-message-action-icon:focus-visible {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  opacity: 1;
+}
+
+.gaw-thinking {
+  color: var(--text-muted);
+}
+
+.gaw-dots {
+  padding: 4px 2px;
+  font-size: 11px;
+}
+
+.gaw-composer {
+  position: relative;
+  margin: 0 12px 12px;
+  padding: 10px 11px 10px;
+  border: 1px solid var(--gaw-border);
+  border-radius: 18px;
+  background: var(--background-primary);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .03);
+}
+
+.gaw-composer-quote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 1px 7px;
+  padding: 7px 8px 7px 10px;
+  border-left: 2px solid var(--interactive-accent);
+  border-radius: 0 9px 9px 0;
+  background: var(--background-secondary);
+}
+
+.gaw-composer-quote-copy {
+  min-width: 0;
+}
+
+.gaw-composer-quote button {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-faint);
+}
+
+.gaw-composer:focus-within {
+  border-color: color-mix(in srgb, var(--interactive-accent) 44%, var(--gaw-border));
+}
+
+.gaw-composer-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 0;
+}
+
+.gaw-composer-chips:empty {
+  display: none;
+}
+
+.gaw-chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: min(240px, 78%);
+  gap: 5px;
+  padding: 5px 7px 5px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  font-size: 10.5px;
+}
+
+.gaw-chip-icon {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+}
+
+.gaw-chip span:not(.gaw-chip-icon) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-chip-x {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-faint);
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.gaw-chip-x:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.gaw-composer textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 82px;
+  margin-top: 5px;
+  padding: 10px 6px 4px;
+  resize: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.gaw-composer textarea:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.gaw-composer textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.gaw-composer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.gaw-mode-actions,
+.gaw-composer-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gaw-composer-icon-btn {
+  min-width: 29px;
+  height: 29px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-normal);
+  font-size: 16px;
+}
+
+.gaw-composer-icon-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-agent-selector {
+  height: 29px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-normal);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.gaw-agent-selector:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-send-round {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--text-normal);
+  color: var(--background-primary);
+  font-size: 18px;
+  line-height: 34px;
+}
+
+.gaw-send-round:hover {
+  background: var(--text-normal);
+  opacity: .86;
+}
+
+.gaw-mode-strip,
+.gaw-project-strip {
+  margin-top: 9px;
+  padding: 8px 9px;
+  border-radius: 11px;
+  background: var(--background-secondary);
+}
+
+.gaw-mode-strip {
+  display: grid;
+  grid-template-columns: auto minmax(100px, 1fr);
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.gaw-mode-strip-label,
+.gaw-project-title {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.gaw-mode-strip-note {
+  grid-column: 1 / -1;
+  color: var(--text-faint);
+  font-size: 9px;
+}
+
+.gaw-skill-select {
+  width: 100%;
+  min-width: 0;
+  height: 27px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.gaw-project-strip p {
+  margin: 5px 0 8px;
+  color: var(--text-muted);
+  font-size: 9.5px;
+  line-height: 1.5;
+}
+
+.gaw-project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+}
+
+.gaw-project-row input {
+  min-width: 0;
+  width: 100%;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.gaw-project-row button {
+  height: 28px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.gaw-context-picker {
+  padding: 4px 2px 2px;
+}
+
+.gaw-context-picker h3 {
+  margin: 0 0 4px;
+}
+
+.gaw-context-picker-hint {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.gaw-context-picker-input {
+  width: 100%;
+  margin-bottom: 9px;
+}
+
+.gaw-context-picker-results {
+  max-height: 340px;
+  overflow-y: auto;
+  border: 1px solid var(--gaw-border);
+  border-radius: 11px;
+}
+
+.gaw-picker-row {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--gaw-border);
+  cursor: pointer;
+}
+
+.gaw-picker-row:last-child {
+  border-bottom: 0;
+}
+
+.gaw-picker-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-picker-title {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.gaw-picker-source {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--text-faint);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-picker-empty {
+  padding: 14px;
+  color: var(--text-faint);
+  font-size: 10px;
+  text-align: center;
+}
+
+.gaw-tool-approval pre {
+  max-height: 320px;
+  overflow: auto;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--background-secondary);
+  white-space: pre-wrap;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.gaw-tool-approval-hint {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.gaw-tool-approval-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.gaw-add-to-chat-menu-item .menu-item-icon {
+  color: var(--interactive-accent);
+}
+
+.gaw-chat-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 9px;
+}
+
+.gaw-chat-header .gaw-card-provenance {
+  grid-column: 2;
+}
+
+.gaw-back-button {
+  margin-top: -2px;
+}
+
+.gaw-list-header {
+  padding-bottom: 10px;
+}
+
+.gaw-list-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gaw-list-title-row h3 {
+  margin: 0;
+}
+
+.gaw-new-chat-button,
+.gaw-conversation-actions button,
+.gaw-tag-filter {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.gaw-new-chat-button:hover,
+.gaw-conversation-actions button:hover,
+.gaw-tag-filter:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-chat-search {
+  width: 100%;
+  margin-top: 11px;
+}
+
+.gaw-tag-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.gaw-tag-filter {
+  height: 25px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.gaw-tag-filter.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 12%, var(--background-primary));
+  color: var(--interactive-accent);
+}
+
+.gaw-conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 12px 18px;
+}
+
+.gaw-conversation-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 12px 7px;
+  border-bottom: 1px solid var(--gaw-border);
+  cursor: pointer;
+}
+
+.gaw-conversation-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-conversation-title {
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-conversation-meta {
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--text-faint);
+  font-size: 9.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-conversation-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.gaw-conversation-tags span {
+  color: var(--interactive-accent);
+  font-size: 9.5px;
+}
+
+.gaw-conversation-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.gaw-conversation-actions button {
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 9px;
+}
+
+.gaw-conversation-actions .gaw-delete-conversation {
+  width: 26px;
+  min-width: 26px;
+  padding: 0;
+}
+
+.gaw-conversation-actions .gaw-delete-conversation:hover {
+  color: var(--text-error);
+}
+
+.gaw-delete-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.gaw-list-empty {
+  padding: 36px 14px;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+.gaw-picker-section-title {
+  padding: 8px 10px 5px;
+  color: var(--text-faint);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.gaw-tag-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.nav-file-title,
+.nav-folder-title {
+  position: relative;
+}
+
+.gaw-explorer-add-context {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 100ms ease;
+}
+
+.nav-file-title:hover .gaw-explorer-add-context,
+.nav-folder-title:hover .gaw-explorer-add-context,
+.gaw-explorer-add-context:focus-visible {
+  opacity: 1;
+}
+
+.gaw-selection-toolbar,
+.gaw-canvas-selection-toolbar {
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  background: var(--background-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+}
+
+.gaw-selection-toolbar button,
+.gaw-canvas-selection-toolbar button {
+  height: 28px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-normal);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.gaw-selection-toolbar button:hover,
+.gaw-canvas-selection-toolbar button:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-reasoning-selector {
+  white-space: nowrap;
+}
+
+.gaw-composer.is-dragging-file {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+.gaw-attachment-strip {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  margin: 2px 0 8px;
+  padding-bottom: 2px;
+}
+
+.gaw-attachment-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 150px;
+  max-width: 210px;
+  padding: 5px 26px 5px 5px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  background: var(--background-secondary);
+}
+
+.gaw-attachment-thumb {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
+.gaw-attachment-meta {
+  min-width: 0;
+}
+
+.gaw-attachment-name {
+  overflow: hidden;
+  color: var(--text-normal);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-attachment-size {
+  margin-top: 2px;
+  color: var(--text-faint);
+  font-size: 9px;
+}
+
+.gaw-attachment-warning {
+  margin: -2px 1px 7px;
+  color: var(--text-warning);
+  font-size: 9.5px;
+  line-height: 1.45;
+}
+
+.gaw-attachment-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.gaw-message-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+
+.gaw-message-image-button {
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.gaw-message-image {
+  display: block;
+  width: 112px;
+  max-height: 112px;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 0.8 Agent client UI — Claudian-inspired hierarchy, Graph AI semantics.     */
+/* -------------------------------------------------------------------------- */
+
+.gaw-root {
+  --gaw-agent-soft: color-mix(in srgb, var(--background-secondary) 70%, var(--background-primary));
+  --gaw-agent-hover: color-mix(in srgb, var(--background-modifier-hover) 75%, transparent);
+  --gaw-agent-accent-soft: color-mix(in srgb, var(--interactive-accent) 10%, transparent);
+}
+
+.gaw-header.gaw-chat-header {
+  min-height: 46px;
+  padding: 9px 42px 8px 10px;
+  border-bottom: 1px solid var(--gaw-border);
+  background: var(--background-primary);
+}
+
+.gaw-chat-header .gaw-back-button {
+  align-self: center;
+  margin: 0;
+}
+
+.gaw-title-wrap h3 {
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.gaw-chat-meta {
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9.5px;
+  line-height: 1.3;
+}
+
+.gaw-chat-agent-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--text-muted);
+}
+
+.gaw-chat-agent-dot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+
+.gaw-chat-agent-state.is-ready .gaw-chat-agent-dot {
+  background: var(--color-green, var(--interactive-accent));
+}
+
+.gaw-chat-agent-state.is-crashed .gaw-chat-agent-dot {
+  background: var(--color-red, var(--text-error));
+}
+
+.gaw-chat-agent-state.is-sleeping .gaw-chat-agent-dot {
+  background: var(--color-yellow, var(--text-warning));
+}
+
+.gaw-chat-menu {
+  top: 9px;
+  right: 9px;
+}
+
+.gaw-chat {
+  padding: 16px 14px 18px;
+  scroll-padding-bottom: 24px;
+}
+
+.gaw-message {
+  position: relative;
+  margin: 0 0 20px;
+}
+
+.gaw-message-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 20px;
+  margin-bottom: 4px;
+  color: var(--text-faint);
+}
+
+.gaw-message-role-icon {
+  display: inline-flex;
+  width: 13px;
+  height: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaw-message-role-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gaw-message-role {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.gaw-message-body {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 12.5px;
+  line-height: 1.62;
+  white-space: normal;
+}
+
+.gaw-message.is-user .gaw-message-body {
+  max-width: calc(100% - 14px);
+  margin-left: 14px;
+  padding: 9px 11px;
+  border: 1px solid color-mix(in srgb, var(--background-modifier-border) 68%, transparent);
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--background-secondary) 58%, var(--background-primary));
+}
+
+.gaw-message.is-assistant .gaw-message-body {
+  margin: 0;
+  padding: 0 2px;
+  background: transparent;
+}
+
+.gaw-message-content {
+  white-space: pre-wrap;
+}
+
+.gaw-message-content.markdown-rendered {
+  white-space: normal;
+}
+
+.gaw-message-content.markdown-rendered > :first-child {
+  margin-top: 0;
+}
+
+.gaw-message-content.markdown-rendered > :last-child {
+  margin-bottom: 0;
+}
+
+.gaw-message-content.markdown-rendered p {
+  margin: 0 0 9px;
+}
+
+.gaw-message-content.markdown-rendered ul,
+.gaw-message-content.markdown-rendered ol {
+  margin-top: 5px;
+  margin-bottom: 9px;
+  padding-left: 1.5em;
+}
+
+.gaw-message-content.markdown-rendered pre {
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+.gaw-message-contexts {
+  margin-bottom: 7px;
+}
+
+.gaw-message-context-link {
+  height: 23px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--gaw-agent-soft);
+  font-size: 9.5px;
+}
+
+.gaw-message-quote {
+  margin-bottom: 8px;
+  padding: 5px 8px;
+  border-left-width: 2px;
+  background: var(--gaw-agent-soft);
+}
+
+.gaw-runtime-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 10px;
+}
+
+.gaw-runtime-row {
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.gaw-runtime-row[open] {
+  background: var(--gaw-agent-soft);
+}
+
+.gaw-runtime-row > summary {
+  list-style: none;
+}
+
+.gaw-runtime-row > summary::-webkit-details-marker {
+  display: none;
+}
+
+.gaw-runtime-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 27px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  cursor: default;
+}
+
+details.gaw-runtime-row .gaw-runtime-line {
+  cursor: pointer;
+}
+
+.gaw-runtime-line:hover {
+  background: var(--gaw-agent-hover);
+}
+
+.gaw-runtime-icon,
+.gaw-runtime-state {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaw-runtime-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.gaw-runtime-state {
+  margin-left: auto;
+  color: var(--text-faint);
+}
+
+.gaw-runtime-state svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gaw-runtime-row.is-failed .gaw-runtime-icon,
+.gaw-runtime-row.is-failed .gaw-runtime-state,
+.gaw-runtime-row.is-denied .gaw-runtime-icon,
+.gaw-runtime-row.is-denied .gaw-runtime-state {
+  color: var(--text-error);
+}
+
+.gaw-runtime-title {
+  flex: 0 0 auto;
+  color: var(--text-normal);
+  font-weight: 560;
+}
+
+.gaw-runtime-meta {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-faint);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-runtime-diff {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.gaw-runtime-detail {
+  max-height: 170px;
+  margin: 0 6px 6px 25px;
+  padding: 7px 8px;
+  overflow: auto;
+  border: 0;
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-muted);
+  font-size: 9.5px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.gaw-message-actions {
+  margin: 3px 0 0 16px;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 90ms ease, transform 90ms ease;
+}
+
+.gaw-message.is-assistant:hover .gaw-message-actions,
+.gaw-message-actions:focus-within {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gaw-message-actions .gaw-message-action-icon {
+  width: 25px;
+  height: 25px;
+  min-width: 25px;
+  border-radius: 6px;
+}
+
+.gaw-thinking .gaw-message-body {
+  min-height: 30px;
+}
+
+.gaw-live-runtime:empty {
+  display: none;
+}
+
+.gaw-agent-activity {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 27px;
+  color: var(--text-faint);
+  font-size: 10px;
+}
+
+.gaw-agent-activity-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  animation: gaw-agent-pulse 1.25s ease-in-out infinite;
+}
+
+@keyframes gaw-agent-pulse {
+  0%, 100% { opacity: .35; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.gaw-composer-shell {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  container-type: inline-size;
+  padding: 4px 10px var(--gaw-bottom-safe, 10px);
+  background: linear-gradient(to bottom, transparent 0, var(--background-primary) 14px, var(--background-primary) 100%);
+}
+
+.gaw-composer {
+  margin: 0;
+  padding: 7px 8px 6px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 13px;
+  background: var(--background-primary);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 6%);
+}
+
+.gaw-composer:focus-within {
+  border-color: color-mix(in srgb, var(--interactive-accent) 45%, var(--background-modifier-border));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--interactive-accent) 12%, transparent), 0 4px 14px rgb(0 0 0 / 7%);
+}
+
+.gaw-context-tray:empty {
+  display: none;
+}
+
+.gaw-context-tray {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 3px;
+}
+
+.gaw-composer-quote {
+  margin: 0;
+  padding: 5px 7px;
+  border-radius: 7px;
+  background: var(--gaw-agent-soft);
+}
+
+.gaw-composer-chips {
+  gap: 4px;
+  margin: 0;
+}
+
+.gaw-chip {
+  height: 24px;
+  padding: 0 5px 0 7px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--gaw-agent-soft);
+  font-size: 9.5px;
+}
+
+.gaw-attachment-strip {
+  gap: 5px;
+  margin: 0;
+}
+
+.gaw-attachment-item {
+  min-height: 42px;
+  padding: 4px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--gaw-agent-soft);
+}
+
+.gaw-attachment-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.gaw-composer textarea {
+  min-height: 42px;
+  max-height: 220px;
+  margin: 0;
+  padding: 8px 5px 6px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.gaw-composer-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  min-height: 29px;
+  margin-top: 1px;
+}
+
+.gaw-mode-actions,
+.gaw-composer-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, .8cqw, 5px);
+}
+
+.gaw-mode-actions {
+  min-width: 0;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.gaw-composer-right {
+  flex: 0 0 auto;
+  justify-self: end;
+}
+
+.gaw-composer-icon-btn,
+.gaw-agent-selector,
+.gaw-model-selector,
+.gaw-reasoning-selector,
+.gaw-permission-selector {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  height: 27px;
+  min-height: 27px;
+  min-width: 27px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 550;
+}
+
+.gaw-composer-icon-btn:hover,
+.gaw-agent-selector:hover,
+.gaw-model-selector:hover,
+.gaw-reasoning-selector:hover,
+.gaw-permission-selector:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.gaw-agent-selector {
+  color: var(--text-normal);
+  font-weight: 650;
+}
+
+.gaw-model-selector {
+  flex: 0 1 150px;
+  min-width: 27px;
+  max-width: 150px;
+}
+
+.gaw-selector-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gaw-model-label {
+  max-width: 112px;
+}
+
+.gaw-selector-chevron {
+  flex: 0 0 auto;
+  margin-left: -1px;
+  color: var(--text-faint);
+  font-size: 9px;
+  line-height: 1;
+}
+
+.gaw-reasoning-stream {
+  margin: 1px 0 8px;
+  border-left: 2px solid color-mix(in srgb, var(--interactive-accent) 32%, transparent);
+  color: var(--text-muted);
+}
+
+.gaw-reasoning-stream.is-live {
+  border-left-color: color-mix(in srgb, var(--interactive-accent) 62%, transparent);
+}
+
+.gaw-reasoning-summary {
+  display: flex;
+  min-height: 25px;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.gaw-reasoning-summary::-webkit-details-marker {
+  display: none;
+}
+
+.gaw-reasoning-icon,
+.gaw-reasoning-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gaw-reasoning-note {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
+.gaw-reasoning-text {
+  padding: 3px 10px 8px;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.gaw-live-answer {
+  margin: 7px 0 2px;
+  color: var(--text-normal);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.gaw-permission-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gaw-permission-label {
+  display: none;
+}
+
+.gaw-permission-selector.is-allow-edits {
+  color: var(--interactive-accent);
+  background: color-mix(in srgb, var(--interactive-accent) 12%, transparent);
+}
+
+.gaw-permission-selector.is-allow-edits:hover {
+  background: var(--background-modifier-hover);
+}
+
+.gaw-selector-icon,
+.gaw-selector-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gaw-send-round {
+  display: inline-flex;
+  width: 29px;
+  height: 29px;
+  min-width: 29px;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  flex: 0 0 auto;
+}
+
+.gaw-send-round svg {
+  width: 15px;
+  height: 15px;
+}
+
+.gaw-send-round.is-stop {
+  background: var(--background-modifier-error);
+  color: var(--text-error);
+}
+
+@container (max-width: 540px) {
+  .gaw-agent-selector .gaw-selector-label,
+  .gaw-reasoning-selector .gaw-selector-label {
+    display: none;
+  }
+
+  .gaw-agent-selector .gaw-selector-chevron,
+  .gaw-reasoning-selector .gaw-selector-chevron {
+    display: none;
+  }
+
+  .gaw-model-selector {
+    flex-basis: 112px;
+    max-width: 112px;
+  }
+
+  .gaw-model-label {
+    max-width: 78px;
+  }
+}
+
+@container (max-width: 390px) {
+  .gaw-model-selector {
+    flex: 0 0 27px;
+    width: 27px;
+    padding: 0;
+  }
+
+  .gaw-model-selector .gaw-selector-label,
+  .gaw-model-selector .gaw-selector-chevron {
+    display: none;
+  }
+
+  .gaw-agent-selector,
+  .gaw-reasoning-selector,
+  .gaw-permission-selector,
+  .gaw-composer-icon-btn {
+    width: 27px;
+    padding: 0;
+  }
+}
+
+@container (max-width: 285px) {
+  .gaw-composer-bottom {
+    align-items: end;
+  }
+
+  .gaw-mode-actions {
+    overflow: visible;
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .gaw-composer-right {
+    align-self: end;
+  }
+}
+
+.gaw-conversation-list {
+  padding: 5px 8px 14px;
+}
+
+.gaw-conversation-row {
+  margin: 1px 0;
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 8px;
+}
+
+.gaw-conversation-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gaw-conversation-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.gaw-conversation-title-row .gaw-conversation-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.gaw-conversation-agent {
+  flex: 0 0 auto;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--gaw-agent-soft);
+  color: var(--text-faint);
+  font-size: 8.5px;
+  font-weight: 600;
+}
+
+.gaw-conversation-preview {
+  display: -webkit-box;
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.gaw-conversation-actions {
+  opacity: 0;
+  transition: opacity 90ms ease;
+}
+
+.gaw-conversation-row:hover .gaw-conversation-actions,
+.gaw-conversation-actions:focus-within {
+  opacity: 1;
+}
+
+.gaw-list-header {
+  padding: 12px 12px 9px;
+}
+
+.gaw-chat-search {
+  height: 30px;
+  margin-top: 9px;
+  border-radius: 7px;
+  font-size: 11px;
+}
