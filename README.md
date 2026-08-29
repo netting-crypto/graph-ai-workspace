@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-0891b2?style=flat-square)](LICENSE)
 [![CI](https://github.com/netting-crypto/graph-ai-workspace/actions/workflows/ci.yml/badge.svg)](https://github.com/netting-crypto/graph-ai-workspace/actions/workflows/ci.yml)
 
-[English](README.md) · [Releases](https://github.com/netting-crypto/graph-ai-workspace/releases) · [Issues](https://github.com/netting-crypto/graph-ai-workspace/issues)
+[简体中文](README.zh-CN.md) · [Releases](https://github.com/netting-crypto/graph-ai-workspace/releases) · [Issues](https://github.com/netting-crypto/graph-ai-workspace/issues)
 
 </div>
 
