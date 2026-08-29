@@ -1,0 +1,12 @@
+<svg width="1200" height="230" viewBox="0 0 1200 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Graph AI Workspace workflow</title><desc id="desc">Select a Canvas card, add context, ask a question, explore a branch, and materialize the result back into Canvas.</desc>
+  <rect width="1200" height="230" rx="20" fill="#F7F5FF"/>
+  <path d="M180 113H1020" stroke="#C4B5FD" stroke-width="3" stroke-dasharray="8 8"/>
+  <g font-family="Inter,ui-sans-serif,sans-serif" text-anchor="middle">
+    <g><circle cx="130" cy="113" r="40" fill="#6D28D9"/><text x="130" y="120" fill="white" font-size="24" font-weight="700">1</text><text x="130" y="180" fill="#312E5A" font-size="16" font-weight="700">Select</text><text x="130" y="201" fill="#6B6790" font-size="13">Canvas card</text></g>
+    <g><circle cx="365" cy="113" r="40" fill="#7C3AED"/><text x="365" y="120" fill="white" font-size="24" font-weight="700">2</text><text x="365" y="180" fill="#312E5A" font-size="16" font-weight="700">Attach</text><text x="365" y="201" fill="#6B6790" font-size="13">Question context</text></g>
+    <g><circle cx="600" cy="113" r="40" fill="#0891B2"/><text x="600" y="120" fill="white" font-size="24" font-weight="700">3</text><text x="600" y="180" fill="#312E5A" font-size="16" font-weight="700">Ask</text><text x="600" y="201" fill="#6B6790" font-size="13">Choose an Agent</text></g>
+    <g><circle cx="835" cy="113" r="40" fill="#0E7490"/><text x="835" y="120" fill="white" font-size="24" font-weight="700">4</text><text x="835" y="180" fill="#312E5A" font-size="16" font-weight="700">Explore</text><text x="835" y="201" fill="#6B6790" font-size="13">Fork when useful</text></g>
+    <g><circle cx="1070" cy="113" r="40" fill="#155E75"/><text x="1070" y="120" fill="white" font-size="24" font-weight="700">5</text><text x="1070" y="180" fill="#312E5A" font-size="16" font-weight="700">Materialize</text><text x="1070" y="201" fill="#6B6790" font-size="13">Add to Canvas</text></g>
+  </g>
+</svg>

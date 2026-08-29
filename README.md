@@ -1,145 +1,121 @@
+<div align="center">
+
+<img src="assets/readme/hero.svg" alt="Graph AI Workspace connects Canvas knowledge cards, question context, conversations, and local AI agents." />
+
 # Graph AI Workspace
 
-A canvas-first AI workspace for Obsidian.
+**A canvas-first AI workspace for Obsidian.**
 
-Graph AI Workspace keeps **Canvas as the place where you organize and own knowledge**, while Conversations remain an exploration layer attached to your work. Cards, files, folders, images, and selected text can be passed into an Agent as question-level context. Useful results can then be explicitly materialized back into Canvas.
+[![Version](https://img.shields.io/badge/version-0.9.0--beta-7c3aed?style=flat-square)](https://github.com/netting-crypto/graph-ai-workspace/releases)
+[![Platform](https://img.shields.io/badge/platform-Obsidian%20Desktop-483699?style=flat-square)](https://obsidian.md/)
+[![License](https://img.shields.io/badge/license-MIT-0891b2?style=flat-square)](LICENSE)
+[![CI](https://github.com/netting-crypto/graph-ai-workspace/actions/workflows/ci.yml/badge.svg)](https://github.com/netting-crypto/graph-ai-workspace/actions/workflows/ci.yml)
 
-> Status: **0.9 beta**. Desktop only. The plugin is usable now, but the data model and Agent adapters are still evolving.
+[English](README.md) · [Releases](https://github.com/netting-crypto/graph-ai-workspace/releases) · [Issues](https://github.com/netting-crypto/graph-ai-workspace/issues)
 
-## What it does
+</div>
 
-- **Canvas-first workflow** — keep your knowledge structure in Obsidian Canvas instead of turning the Canvas into a chat transcript.
-- **Independent Conversations** — one Card can be used in many Conversations, and one Conversation can reference many Cards.
-- **Question-level Context** — attach Canvas cards, Markdown files, folders, images, and selected text to the next question only.
-- **Add to Canvas** — materialize an Agent response back into the current Canvas while preserving its Markdown source and provenance.
-- **Conversation Forks** — fork from a specific point without duplicating the whole history. Graph AI keeps a canonical branch model instead of treating an Agent's private session as the source of truth.
-- **Pluggable Agent runtimes** — current adapters include Codex, OpenCode, and an experimental ZCode adapter.
-- **Agent/model/reasoning controls** — model and reasoning options are discovered from the active runtime when the runtime exposes them.
-- **Streaming Agent UI** — visible Agent-provided reasoning/summary text, answer deltas, tool calls, edits, and artifacts can stream into the Conversation UI.
-- **Permission modes** — Read only, Ask before changes, or Allow edits in project.
+> **Status:** 0.9 beta · Desktop only · The data model and Agent adapters are still evolving.
+
+Graph AI Workspace keeps **Canvas as the place where you organize and own knowledge**. Conversations are an exploration layer: bring exactly the material needed for one question into an Agent, then explicitly decide which result deserves a place back on the Canvas.
+
+## Why it is different
+
+Most AI note tools turn your workspace into a chat transcript. Graph AI Workspace keeps the two jobs separate:
+
+| Canvas | Conversation |
+| --- | --- |
+| Organize knowledge, write durable notes, and preserve relationships | Explore ideas, compare answers, and branch into new directions |
+| Your long-lived structure | A temporary or forkable thinking layer |
+| Receives only what you explicitly materialize | Uses only the context you explicitly attach |
+
+## The workflow
+
+<img src="assets/readme/workflow.svg" alt="Select a Canvas card, attach question context, ask an Agent, explore a fork, and materialize the result back into Canvas." />
+
+1. Select a text or file card on an Obsidian Canvas.
+2. Add cards, files, folders, images, or selected text as **question-level Context**.
+3. Choose an Agent, model, reasoning level, and permission mode.
+4. Ask the question; fork the Conversation when a new direction is useful.
+5. Use **Add to Canvas** only when an answer is worth keeping as knowledge.
+
+## Core capabilities
+
+- **Canvas-first organization** — your Canvas stays a knowledge structure, not a transcript.
+- **Independent Conversations** — one card can participate in many discussions, and one discussion can reference many cards.
+- **Question-level Context** — attachments apply to the next question rather than silently binding to a whole conversation.
+- **Conversation Forks** — branch from a specific point without duplicating the canonical history.
+- **Explicit materialization** — write an Agent response back to Canvas with Markdown source and provenance preserved.
+- **Streaming Agent UI** — see supported reasoning summaries, answer deltas, tool calls, edits, and artifacts as they arrive.
+- **Runtime-backed controls** — discover supported models and reasoning options from the active runtime.
 - **Image input** — paste, drag, or attach images when the selected Agent supports them.
+
+## Supported Agent runtimes
+
+Graph AI Workspace does not bundle a model. It connects to local runtimes already installed on your computer.
+
+| Runtime | Integration | Notes |
+| --- | --- | --- |
+| **Codex** | Persistent App Server, with CLI fallback | Discover `codex` from `PATH` or configure its path in Settings |
+| **OpenCode** | ACP, with CLI fallback | Models and reasoning options come from the ACP session when available |
+| **ZCode** | CLI adapter | Experimental; primarily tested with the macOS desktop installation |
+
+Different runtimes expose different capabilities. Graph AI maps them as closely as possible and does not promise stricter enforcement than the underlying runtime provides.
 
 ## Installation
 
-### From a GitHub Release
+### GitHub Release
 
-Once releases are published, download these three files from the release matching the version in `manifest.json`:
-
-- `main.js`
-- `manifest.json`
-- `styles.css`
-
-Create this folder inside your vault:
+After a release is published, download `main.js`, `manifest.json`, and `styles.css` from the matching version. Create this folder inside your vault:
 
 ```text
 <Vault>/.obsidian/plugins/graph-ai-workspace/
 ```
 
-Put the three files inside it, then restart Obsidian (or reload the app) and enable **Graph AI Workspace** under **Settings → Community plugins**.
+Place the three files there, restart or reload Obsidian, then enable **Graph AI Workspace** under **Settings → Community plugins**.
 
-The plugin ID is `graph-ai-workspace`, matching the release metadata and installation directory.
+### BRAT
 
-### Via BRAT
-
-After this repository has a GitHub Release, BRAT can install the same three release assets. Add the repository as a beta plugin and enable Graph AI Workspace in Obsidian.
+Once a GitHub Release exists, add this repository to [BRAT](https://github.com/TfTHacker/obsidian42-brat) as a beta plugin and enable Graph AI Workspace in Obsidian.
 
 ## First-time setup
 
-Graph AI Workspace itself does not bundle a model. Install at least one supported Agent runtime on the same computer:
+1. Install at least one supported Agent runtime.
+2. Authenticate/configure that runtime using its own documented flow.
+3. Open **Settings → Graph AI Workspace → Agent Runtime**.
+4. Confirm executable paths, provider defaults, and the permission mode.
+5. Open a Canvas and launch Graph AI from the ribbon or command palette.
 
-### Codex
+### Commands
 
-- Install the official Codex CLI / desktop runtime.
-- Sign in with your ChatGPT/OpenAI account in Codex.
-- Graph AI will try to discover `codex` from `PATH` and common install locations.
-- You can override the executable path under **Settings → Graph AI Workspace → Agent Runtime**.
+- **Open Graph AI sidebar** — open the workspace view.
+- **Open Interaction Playground** — open the configured example Canvas, when available.
+- **Refresh Agent runtimes** — re-detect installed backends and capabilities.
 
-Codex uses its persistent App Server integration when available and falls back to the CLI execution path when necessary.
+## Permissions and privacy
 
-### OpenCode
+> **Read this before enabling local tools.** Permission labels are mapped to the selected runtime; they are not a security sandbox.
 
-- Install OpenCode so the `opencode` command is available in `PATH`, or set its executable path manually.
-- Authenticate/configure models inside OpenCode itself.
-- Graph AI uses **ACP** as the primary integration path and falls back to the CLI when ACP cannot serve the requested capability.
+- **Read only** — ask the Agent not to modify the project.
+- **Ask before changes** — request approval when the runtime supports interactive permission prompts.
+- **Allow edits in project** — permit edits within the current vault/workspace.
 
-Model choices shown in Graph AI come from the OpenCode ACP session when available.
+Local conversations, context references, settings, and Agent session bindings are stored in the vault's local `data.json`. That file is intentionally ignored by Git and excluded from release builds. Manually entered API keys are stored there as well.
 
-### ZCode (experimental)
-
-The current ZCode adapter is primarily tested with the macOS desktop installation and its bundled Node CLI. It is optional; Codex and OpenCode do not require ZCode.
-
-## Basic workflow
-
-1. Open a Canvas and select a text/file card.
-2. Use the Graph AI action on the card, or open Graph AI from the ribbon.
-3. Add more Cards/files/folders/images as Context if needed.
-4. Choose an Agent, model, reasoning level, and permission mode.
-5. Ask the question.
-6. Fork the Conversation when a discussion needs a new direction.
-7. Use **Add to Canvas** only when an answer is worth becoming part of your knowledge structure.
-
-### Important semantics
-
-```text
-Canvas         = knowledge / writing structure
-Conversation   = discussion and exploration
-Question       = one prompt plus its Context
-Context        = material available to that Question
-Link           = explicit provenance / relationship
-Fork           = a new Conversation branch
-Add to Canvas  = explicit materialization into a Canvas card
-Agent          = runtime that answers and/or executes tools
-```
-
-Adding a Card as Context does **not** automatically create a backlink or bind the Card to the Conversation.
-
-## Permissions
-
-Graph AI exposes three workspace access levels:
-
-- **Read only** — the Agent should operate without modifying the project.
-- **Ask before changes** — modifying actions require approval when the underlying Agent protocol supports interactive permission requests.
-- **Allow edits in project** — permit edits inside the current vault/workspace.
-
-Different Agent runtimes expose different native permission primitives. Graph AI maps them as closely as possible and does not claim stricter enforcement than a runtime actually provides.
-
-## Privacy and local data
-
-- Conversation history, context references, settings, and Agent session bindings are stored locally in the plugin's `data.json` inside the vault.
-- `data.json` is intentionally ignored by Git and is **not included in release builds**.
-- Optional manually entered API keys are stored in that same local plugin state.
-- Graph AI does not include its own telemetry service.
-- When you send a question to an Agent/model provider, the supplied question and Context may be sent to that provider according to the provider/Agent you configured.
-- Local Agent processes can access the current vault according to the permission mode you select.
-
-Before publishing a fork or debug bundle, verify that `data.json`, API keys, logs, and private vault content are not included.
+Graph AI Workspace includes no telemetry service. When you send a question, the prompt and the Context you supplied may be transmitted to the configured model provider or local Agent. Local Agent processes may access the vault according to the selected permission mode. Review the provider and runtime policies before using private material.
 
 ## Development
 
-Requirements:
-
-- Node.js 20+
-- npm / pnpm / another package manager compatible with `package.json`
-
-Install dependencies:
+Requirements: **Node.js 20+** and npm.
 
 ```bash
 npm ci
-```
-
-Run release checks:
-
-```bash
 npm run check
-```
-
-Build the production plugin:
-
-```bash
 npm run build
+node --check dist/main.js
 ```
 
-The build bundles all local runtime modules into a single Obsidian-compatible file and writes:
+The production bundle is written to `dist/`:
 
 ```text
 dist/
@@ -148,32 +124,25 @@ dist/
 └── styles.css
 ```
 
-This bundling step is required because Obsidian Community Plugins and BRAT install release assets as the standard `main.js`, `manifest.json`, and optional `styles.css` files.
+Do not commit `data.json`, `.env*`, local Agent credentials, private vault content, `node_modules/`, or generated `dist/` output.
 
 ## Releasing
 
-1. Update the semantic version in `manifest.json` and `versions.json`.
-2. Run `npm run check` and `npm run build`.
-3. Commit the changes.
-4. Push a tag matching the manifest version, for example:
+1. Update the semantic version in `manifest.json`, `package.json`, and `versions.json`.
+2. Run `npm run release:verify`.
+3. Commit the changes and create a matching tag:
 
 ```bash
 git tag v0.9.0
 git push origin main --tags
 ```
 
-The included GitHub Actions release workflow validates the tag, builds the bundled plugin, and publishes `main.js`, `manifest.json`, and `styles.css` as release assets.
+The release workflow validates the tag and publishes `main.js`, `manifest.json`, and `styles.css` as GitHub Release assets.
 
-## Repository hygiene
+## Contributing
 
-The repository is source-first. Never commit:
-
-- `data.json`
-- `.env*`
-- local Agent credentials
-- private vault content
-- generated `dist/` output
+Issues and pull requests are welcome. Before contributing, please keep changes focused, avoid including vault data or credentials, and run the local checks above.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
