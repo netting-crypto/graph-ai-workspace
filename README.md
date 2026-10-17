@@ -19,6 +19,12 @@
 
 Graph AI Workspace keeps **Canvas as the place where you organize and own knowledge**. Conversations are an exploration layer: bring exactly the material needed for one question into an Agent, then explicitly decide which result deserves a place back on the Canvas.
 
+## Film
+
+<video src="https://github.com/user-attachments/assets/4358bd53-fe21-4ed1-b071-cdebfad1927f" controls width="100%"></video>
+
+A 107-second product film with no narration — on-screen text and motion carry it. It moves through the problem, the three design principles, a Canvas conversation walkthrough (**Add to Canvas**, **Fork**, **Add + Fork**), the fork rules, and how local Agent runtimes and permissions fit in.
+
 ## Why it is different
 
 Most AI note tools turn your workspace into a chat transcript. Graph AI Workspace keeps the two jobs separate:

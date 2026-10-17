@@ -19,6 +19,12 @@
 
 Graph AI Workspace 将 **Canvas 保持为组织和沉淀知识的地方**。Conversation 是探索层：为某一个问题明确选择所需材料，交给 Agent 处理，再决定哪些结果值得写回 Canvas。
 
+## 影片
+
+<video src="https://github.com/user-attachments/assets/4358bd53-fe21-4ed1-b071-cdebfad1927f" controls width="100%"></video>
+
+107 秒产品影片，无旁白，全部由屏上文字与动效表达。依次讲清痛点、三条设计原则、画布上的对话与三个按钮（Add to Canvas / Fork / Add + Fork）、分叉规则，以及本地 Agent 接入与权限。
+
 ## 为什么不同
 
 许多 AI 笔记工具会把工作区变成聊天记录。Graph AI Workspace 将这两件事分开：
