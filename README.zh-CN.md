@@ -21,11 +21,11 @@ Graph AI Workspace 将 **Canvas 保持为组织和沉淀知识的地方**。Conv
 
 ## 影片
 
-<video src="https://github.com/user-attachments/assets/50dd4644-ec10-4048-857a-4422b23568fc" controls width="100%"></video>
+[<img src="https://netting-crypto.github.io/videos/graph-ai-workspace-film-cover.jpg" width="100%" alt="Graph AI Workspace 107 秒产品影片，点击播放">](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4)
 
 107 秒产品影片，无旁白，全部由屏上文字与动效表达。依次讲清痛点、三条设计原则、画布上的对话与三个按钮（Add to Canvas / Fork / Add + Fork）、分叉规则，以及本地 Agent 接入与权限。
 
-加载慢？[从镜像直接观看](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4)。
+**观看：** [镜像（最快）](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4) · [飞书](https://my.feishu.cn/file/SR8xb1oZTodQS7xD63mcSU1HnOe) · [GitHub 直链](https://github.com/user-attachments/assets/50dd4644-ec10-4048-857a-4422b23568fc)
 
 ## 为什么不同
 
