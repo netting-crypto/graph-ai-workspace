@@ -21,11 +21,11 @@ Graph AI Workspace keeps **Canvas as the place where you organize and own knowle
 
 ## Film
 
-<video src="https://github.com/user-attachments/assets/50dd4644-ec10-4048-857a-4422b23568fc" controls width="100%"></video>
+[<img src="https://netting-crypto.github.io/videos/graph-ai-workspace-film-cover.jpg" width="100%" alt="Graph AI Workspace — 107-second product film. Click to play.">](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4)
 
 A 107-second product film with no narration — on-screen text and motion carry it. It moves through the problem, the three design principles, a Canvas conversation walkthrough (**Add to Canvas**, **Fork**, **Add + Fork**), the fork rules, and how local Agent runtimes and permissions fit in.
 
-Slow to load? [Watch the film from the mirror](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4).
+**Watch:** [Mirror (fastest)](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4) · [Feishu / 飞书](https://my.feishu.cn/file/SR8xb1oZTodQS7xD63mcSU1HnOe) · [GitHub-hosted copy](https://github.com/user-attachments/assets/50dd4644-ec10-4048-857a-4422b23568fc)
 
 ## Why it is different
 
