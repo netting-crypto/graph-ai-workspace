@@ -25,6 +25,8 @@ Graph AI Workspace 将 **Canvas 保持为组织和沉淀知识的地方**。Conv
 
 107 秒产品影片，无旁白，全部由屏上文字与动效表达。依次讲清痛点、三条设计原则、画布上的对话与三个按钮（Add to Canvas / Fork / Add + Fork）、分叉规则，以及本地 Agent 接入与权限。
 
+加载慢？[从镜像直接观看](https://netting-crypto.github.io/videos/graph-ai-workspace-film.mp4)。
+
 ## 为什么不同
 
 许多 AI 笔记工具会把工作区变成聊天记录。Graph AI Workspace 将这两件事分开：
